@@ -20,7 +20,7 @@ let PaperIconComponent = Component.extend(ColorMixin, {
   tagName: 'md-icon',
   classNames: ['paper-icon', 'md-font', 'material-icons', 'md-default-theme'],
   classNameBindings: ['spinClass'],
-  attributeBindings: ['aria-label', 'title', 'sizeStyle:style', 'iconClass:md-font-icon'],
+  attributeBindings: ['aria-hidden', 'aria-label', 'title', 'sizeStyle:style', 'iconClass:md-font-icon'],
 
   icon: '',
   spin: false,
@@ -30,7 +30,7 @@ let PaperIconComponent = Component.extend(ColorMixin, {
     let icon = this.getWithDefault('positionalIcon', this.get('icon'));
     return icon;
   }),
-
+  'aria-hidden': false,
   'aria-label': reads('iconClass'),
 
   spinClass: computed('spin', 'reverseSpin', function() {
